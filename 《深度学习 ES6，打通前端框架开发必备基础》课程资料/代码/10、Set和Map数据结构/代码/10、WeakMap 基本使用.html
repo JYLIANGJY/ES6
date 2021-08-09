@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WeakMap 基本使用</title>
+</head>
+
+<body>
+    <script>
+        let map = new WeakMap();
+        // map.set('num1', 20);
+        let obj = {
+            num1: 20
+        }
+        map.set(obj, "年龄")
+        console.log(map.get(obj));
+    </script>
+</body>
+
+</html>

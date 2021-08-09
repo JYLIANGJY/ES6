@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>next方法参数</title>
+</head>
+
+<body>
+    <script>
+        function* test(num) {
+            let x = yield(num + 1);
+            let y = yield(x / 3);
+            return (x + y + num);
+        }
+        let n = test(6);
+        console.log(n.next()); // value:7
+        console.log(n.next(3)); // value:1
+        console.log(n.next(3)); // Value:12 done:true
+    </script>
+</body>
+
+</html>

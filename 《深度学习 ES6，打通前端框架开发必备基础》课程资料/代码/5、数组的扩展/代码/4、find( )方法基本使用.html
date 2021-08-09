@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>find方法基本使用</title>
+</head>
+
+<body>
+    <script>
+        // let result = [1, 3, 3, 3, 5, 9, 7].find(function(value) {
+        //     if (value % 2 === 0) {
+        //         return value;
+        //     }
+
+        // })
+        // console.log(result);
+
+        //  回调函数中三个参数分别表示：第一个参数当前值，第二个参数：当前值的位置，第三个参数：表示原始数组。
+        let result = [1, 2, 3, 3, 5, 9, 7].find(function(value, index, array) {
+            if (value % 2 === 0) {
+                console.log('index=', index);
+                console.log('array=', array);
+                return value;
+            }
+
+        })
+        console.log(result);
+    </script>
+</body>
+
+</html>

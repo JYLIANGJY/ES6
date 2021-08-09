@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>export default命令</title>
+</head>
+
+<body>
+    <!-- import showAdd,{ userName, userAge } from './student.js'; console.log(showAdd(3,6));console.log(userName);console.log(userAge); -->
+    <script type='module'>
+        import Student from './student.js'; let stu=new Student(5,7); console.log(stu.getShow());
+    </script>
+</body>
+
+</html>

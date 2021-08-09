@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>简单模拟双向数据绑定</title>
+</head>
+
+<body>
+    <input type="text" id="txtInput">
+    <p id="txtP">
+
+    </p>
+    <script>
+        // 1、先找到文本框，给文本框添加keyup事件。
+        // 2、获取文本框中的值，修改对应的属性的值。
+        // 3、如果直接修改属性的值，同时完成页面中的文本框的值的修改。
+        let input = document.getElementById('txtInput');
+        let p = document.getElementById('txtP');
+        let obj = {
+            text: ''
+        };
+        let newObj = new Proxy(obj, {
+            set: function(target, key, value) {
+                input.value = value;
+                p.innerHTML = value;
+                return Reflect.set(target, key, value);
+            }
+
+
+        });
+        input.addEventListener('keyup', function(e) {
+            newObj.text = e.target.value
+        })
+    </script>
+</body>
+
+</html>

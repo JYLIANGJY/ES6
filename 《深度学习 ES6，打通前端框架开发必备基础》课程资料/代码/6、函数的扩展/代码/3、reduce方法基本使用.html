@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function add(...values) {
+            values.reduce(function(val, item, index, o) {
+                console.log('val=', val); // 第二个参数（初始值）会赋值给val这个参数（从第二次开始执行，val参数中保存的都是函数中返回的值。）
+                console.log('item=', item); // 存储的是数组中的每一项
+                console.log('index=', index); // 存储的是对应的下标
+                console.log('o=', o); // 原来数组的内容。
+
+
+            }, 0)
+        }
+        add(1, 2, 3)
+    </script>
+</body>
+
+</html>

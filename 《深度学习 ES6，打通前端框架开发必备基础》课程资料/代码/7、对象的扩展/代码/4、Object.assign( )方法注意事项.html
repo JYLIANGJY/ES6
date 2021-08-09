@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.assign方法注意事项</title>
+</head>
+
+<body>
+    <script>
+        // let target = {
+        //     a: 1,
+        //     b: 2
+        // };
+        // let source = {
+        //     b: 3,
+        //     d: 4
+        // }
+        // Object.assign(target, source)
+        // console.log(target);
+
+        // 不可枚举的属性不会被复制。
+        let obj = {};
+        Object.defineProperty(obj, 'b', {
+            enumerable: false,
+            value: 'world'
+        })
+        let obj1 = {
+            a: 'hello'
+        };
+        Object.assign(obj1, obj)
+        console.log(obj1);
+    </script>
+</body>
+
+</html>

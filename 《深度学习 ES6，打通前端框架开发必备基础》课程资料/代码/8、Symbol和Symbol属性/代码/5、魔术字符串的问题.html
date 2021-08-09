@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>魔术字符串的问题</title>
+</head>
+
+<body>
+    <script>
+        function getAdd(t, options) {
+            let sum = 0;
+            switch (t) {
+                case "add": // 魔术字符串
+                    sum = 5 + options.num1 + options.num2;
+                    break;
+                case 'sub':
+
+            }
+            return sum;
+        }
+
+        console.log(getAdd("add", {
+            num1: 100,
+            num2: 100
+        })); // 魔术字符串
+    </script>
+</body>
+
+</html>

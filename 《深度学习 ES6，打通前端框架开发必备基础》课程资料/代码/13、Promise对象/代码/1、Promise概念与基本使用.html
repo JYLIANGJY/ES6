@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise概念与基本使用</title>
+</head>
+
+<body>
+    <script>
+        // resolve:表示成功，如果异步操作成功了可以使用resolve来做进一步的处理。
+        // reject:表示的是失败，如果异步操作失败了可以使用reject来做进一步处理。
+        let promise = new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    let num = Math.random();
+                    if (num > 0.3) {
+                        resolve('成功了') // 通过resolve函数将成功的内容返回。
+                    } else {
+                        reject('失败了')
+                    }
+                }, 1000);
+            })
+            // 如果Promise对象执行完毕后，会有相应的返回的结果，接收返回的值。
+            // 第一个回调接收的是成功返回的值，第二个回调接收失败的返回的值。
+        promise.then(function(value) {
+            console.log(value);
+        }, function(result) {
+            console.log(result);
+        })
+    </script>
+</body>
+
+</html>

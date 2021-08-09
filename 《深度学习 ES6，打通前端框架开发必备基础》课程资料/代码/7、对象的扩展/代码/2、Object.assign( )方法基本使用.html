@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Object.assign方法基本使用</title>
+</head>
+
+<body>
+    <script>
+        let obj1 = {
+            name: 'zs'
+
+        };
+        let obj2 = {
+            age: 20
+        }
+        let obj3 = {};
+        Object.assign(obj3, obj1, obj2);
+
+        // for (let key in obj1) {
+        //     obj3[key] = obj1[key];
+        // }
+        // for (let key in obj2) {
+        //     obj3[key] = obj2[key];
+        // }
+        console.log(obj3);
+    </script>
+</body>
+
+</html>

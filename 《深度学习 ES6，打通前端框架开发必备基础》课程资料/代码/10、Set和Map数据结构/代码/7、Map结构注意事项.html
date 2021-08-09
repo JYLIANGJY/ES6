@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map结构注意事项</title>
+</head>
+
+<body>
+    <script>
+        // let m = new Map();
+        // m.set('age', 20);
+        // m.set('age', 23);
+        // console.log(m.get('age')); // 如果对同一个键进行多次赋值，后面的值会覆盖掉前面的值。
+        // console.log(m.get('name')); // 如果读取了一个不存在的键，那么返回的结果为：undefined
+
+        // 只有对同一个对象的引用，Map结构才认为是同一个键。(key1和key2这两个变量的内存地址不一样，那么Map就认为是两个key,Map的键实际上是根内存地址进行绑定的)
+        let m = new Map();
+        let key1 = ['a'];
+        let key2 = ['a'];
+        m.set(key1, 123);
+        m.set(key2, 456);
+        console.log(m.get(key1));
+        console.log(m.get(key2));
+    </script>
+
+</body>
+
+</html>

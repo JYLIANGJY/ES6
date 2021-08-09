@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>async函数异常处理</title>
+</head>
+
+<body>
+    <script>
+        function sleep(second) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+
+                    let num = Math.random();
+                    if (num > 0.8) {
+                        resolve('成功了')
+                    } else {
+                        reject('失败了')
+                    }
+
+                }, second)
+
+            })
+        }
+        async function asyncDemo() {
+            try {
+                let result = await sleep(2000);
+                console.log(result);
+            } catch (error) {
+                console.log(error);
+            }
+
+        }
+        asyncDemo()
+        console.log('执行其它的代码！')
+    </script>
+</body>
+
+</html>

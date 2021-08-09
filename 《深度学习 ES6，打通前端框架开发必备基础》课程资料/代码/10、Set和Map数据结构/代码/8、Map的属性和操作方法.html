@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Map的属性和操作方法</title>
+</head>
+
+<body>
+    <script>
+        let m = new Map();
+        m.set('num1', 12).set("num2", 13).set("num3", 14);
+        console.log(m.get('num2'));
+        console.log(m.has('num10'));
+        console.log(m.delete('num1'));
+        console.log(m.has('num1'));
+        m.clear();
+        console.log(m.get('num3'));
+        // let key1 = ['a'];
+        // let key2 = ['a'];
+        // m.set(key1, 123);
+        // m.set(key2, 456);
+        // console.log(m.size);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>find方法应用案例</title>
+</head>
+
+<body>
+    <script>
+        // 根据用户的编号查询学生的信息。
+        let array = [{
+            id: 1,
+            userName: 'zs',
+            userAge: 18
+        }, {
+            id: 2,
+            userName: 'ls',
+            userAge: 20
+        }, {
+            id: 3,
+            userName: 'wangwu',
+            userAge: 19
+        }]
+        let result = array.find(function(value) {
+            if (value.id === 3) {
+                return value;
+            }
+        })
+        console.log(result.userName);
+    </script>
+</body>
+
+</html>

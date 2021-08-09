@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>箭头函数中this的问题</title>
+</head>
+
+<body>
+    <script>
+        // let person = {
+        //     userName: 'zs',
+        //     getUserName() {
+        //         console.log(this.userName)
+        //     }
+
+        // }
+        // person.getUserName();
+
+
+
+        // let person = {
+        //     userName: 'zs',
+        //     getUserName() {
+        //         let that = this;
+        //         setTimeout(function() {
+        //             console.log(that.userName)
+        //         }, 1000)
+
+        //     }
+
+        // }
+        // person.getUserName();
+
+
+        // 使用箭头函数改造回调函数。
+
+        // let person = {
+        //     userName: 'zs',
+        //     getUserName() {
+        //         setTimeout(() => {
+        //             console.log(this.userName)
+        //         }, 1000)
+
+        //     }
+
+        // }
+        // person.getUserName();
+
+        // let person = {
+        //     userName: 'zs',
+        //     getUserName: () => {
+        //         console.log(this.userName);
+        //     }
+        // }
+        // person.getUserName();
+
+
+        let person = {
+            userName: 'zs',
+            getUserName() {
+                return () => {
+                    console.log(this.userName);
+                }
+
+            }
+        }
+        person.getUserName()();
+    </script>
+</body>
+
+</html>

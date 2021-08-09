@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        class Student {
+            constructor() {
+
+            }
+            get age() {
+                return 18
+            }
+            set age(value) {
+                if (value > 30) {
+                    throw new Error('年龄超出范围')
+                } else {
+                    console.log(value);
+                }
+
+            }
+        }
+        let zs = new Student();
+        console.log(zs.age);
+        zs.age = 35;
+    </script>
+</body>
+
+</html>

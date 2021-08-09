@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Iterator基本使用</title>
+</head>
+
+<body>
+    <script>
+        function show(students) {
+            let index = 0;
+            return {
+                next() {
+                    //1:当第一次调用next方法取出数组中的第一个成员的值。
+                    //2: 当第二次调用next方法，让index值加1，这时表示指向数组中第二个成员，并且获取第二个成员的值。
+                    //3：不断重复上面的过程，直到整个遍历结束。done:true
+                    let done = index === students.length - 1;
+                    let value = students[index];
+                    index++;
+                    return {
+                        value,
+                        done
+                    }
+                }
+            }
+
+        }
+        let it = show(['zhangsan', 'lisi', 'wangwu']);
+        let result = it.next();
+        console.log(result);
+        let result1 = it.next();
+        console.log(result1);
+        let result2 = it.next();
+        console.log(result2);
+        let result3 = it.next();
+        console.log(result3);
+    </script>
+</body>
+
+</html>

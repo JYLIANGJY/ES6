@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>属性与方法的简洁表示方式</title>
+</head>
+
+<body>
+    <script>
+        let userName = 'zs';
+        let userAge = 18;
+        let person = {
+            userName,
+            userAge,
+            // sayHello: function() {
+            //     console.log('你好')
+            // }
+            sayHello() {
+                console.log('你好')
+            }
+        }
+        person.sayHello();
+    </script>
+</body>
+
+</html>

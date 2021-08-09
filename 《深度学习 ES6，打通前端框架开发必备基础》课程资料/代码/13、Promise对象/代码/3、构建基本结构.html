@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>构建基本结构</title>
+</head>
+
+<body>
+    <script>
+        function MyPromise(task) {
+            let that = this;
+            //指定状态，表示MyPromise对象处理异步任务的时候，如果成功了为Resolve状态，否则Reject状态，最开始的状态为Pending
+            that.status = 'Pending';
+            that.onResolvedCallbacks = []; // 存储所有成功的回调函数。
+            that.onRejectedCallbacks = []; //存储所有失败的回调函数。
+            that.value = undefined; // 存储promise的结果。
+            // 处理成功的情况
+            function resolve(value) {
+                if (that.status === 'Pending') {
+                    that.status = 'Resolved';
+                    that.value = value;
+                    that.onResolvedCallbacks.forEach(item => item(that.value))
+                }
+
+            }
+            //处理失败的情况
+            function reject(result) {
+
+                if (that.status === 'Pending') {
+                    that.status = 'Rejected';
+                    //将onRejectedCallbacks数组中的内容取出来并执行。
+                    that.value = result; // 存储了错误的信息。
+                    that.onRejectedCallbacks.forEach(item => item(that.value));
+
+                }
+            }
+            //传递过来的task是一个函数所以要执行，在执行的时候将resolve和reject传递到该函数中，
+            try {
+                task(resolve, reject)
+            } catch (error) {
+                reject(error);
+            }
+
+
+        }
+        MyPromise.prototype.then = function(onResolve, onReject) {
+            let that = this;
+            if (that.status === 'Resolved') {
+                onResolve(that.value);
+            }
+            if (that.status === 'Rejected') {
+                onReject(that.value);
+            }
+            if (that.status === 'Pending') {
+                that.onResolvedCallbacks.push(onResolve); // 将成功的回调函数存储到数组中。
+                that.onRejectedCallbacks.push(onReject); // 将失败的回调函数存储到数组中。
+            }
+
+
+        }
+        let myPromise = new MyPromise(function(resolve, reject) {
+            // setTimeout(function() {
+            //     let num = Math.random();
+            //     if (num > 0.3) {
+            //         resolve('执行成功')
+            //     } else {
+            //         reject('执行失败')
+            //     }
+            // }, 2000);
+            resolve('执行成功');
+        })
+        myPromise.then(function(value) {
+            console.log(value);
+        }, function(result) {
+            console.log(result);
+        })
+    </script>
+</body>
+
+</html>

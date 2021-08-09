@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set结构常用遍历方法</title>
+</head>
+
+<body>
+    <script>
+        let s = new Set(['zs', 'lisi', 'wangwu']);
+        for (let item of s.keys()) {
+            console.log(item);
+        }
+        for (let item of s.values()) {
+            console.log(item);
+        }
+        for (let item of s.entries()) {
+            console.log(item);
+        }
+        s.forEach(function(key, value) {
+            console.log(key);
+            console.log('姓名:' + value);
+        })
+    </script>
+</body>
+
+</html>

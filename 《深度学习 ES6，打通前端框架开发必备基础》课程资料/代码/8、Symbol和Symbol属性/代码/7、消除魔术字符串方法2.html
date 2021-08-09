@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>消除魔术字符串方法2</title>
+</head>
+
+<body>
+    <script>
+        let operType = {
+            oper: Symbol(),
+            oper2: Symbol()
+
+        }
+
+        function getAdd(t, options) {
+            let sum = 0;
+            switch (t) {
+                case operType.oper:
+                    sum = 5 + options.num1 + options.num2;
+                    break;
+                case operType.oper2:
+                    console.log(options.num1 + 5 - options.num2);
+            }
+            return sum;
+        }
+
+        console.log(getAdd(operType.oper2, {
+            num1: 100,
+            num2: 100
+        }));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>作为属性名的Symbol</title>
+</head>
+
+<body>
+    <script>
+        //通过方括号的方式给对象添加属性
+        // let mySymbol = Symbol();
+        // let obj = {};
+        // obj[mySymbol] = 'hello';
+        // console.log(obj[mySymbol]);
+        //  创建对象时直接去添加对应的属性
+        // let mySymbol = Symbol();
+        // let obj = {
+        //     [mySymbol]: 'world',
+
+        // };
+        // console.log(obj[mySymbol]);
+
+        // 通过defineProperty( )创建对应的属性
+        let mySymbol = Symbol();
+        let obj = {};
+        Object.defineProperty(obj, mySymbol, {
+            value: '你好'
+        })
+        console.log(obj[mySymbol]);
+    </script>
+</body>
+
+</html>

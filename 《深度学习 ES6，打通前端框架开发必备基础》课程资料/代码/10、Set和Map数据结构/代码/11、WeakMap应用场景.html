@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>WeakMap应用场景</title>
+</head>
+
+<body>
+    <div>
+        <input type="button" id="btn" value="计算">
+        <input type="button" id="removeBtn" value="移除">
+    </div>
+    <script>
+        // 获取“计算”按钮
+        let btn = document.getElementById('btn');
+        // 获取“移除”按钮
+        let removeBtn = document.getElementById('removeBtn');
+        let myWeakMap = new WeakMap();
+        myWeakMap.set(btn, {
+                count: 0
+            })
+            // let myCount = {
+            //         count: 0
+            //     }
+            // 完成计算
+        btn.addEventListener('click', function() {
+                let myCount = myWeakMap.get(btn)
+                myCount.count++;
+                myWeakMap.set(btn, myCount)
+                console.log(myCount.count);
+            })
+            // 移除计算按钮 （内存泄漏：表示未能释放已经不再使用的内存）
+        removeBtn.addEventListener('click', function() {
+            removeBtn.parentNode.removeChild(btn);
+            btn = null;
+            // console.log(myCount.count);
+            console.log(myWeakMap.get(btn));
+        })
+    </script>
+</body>
+
+</html>

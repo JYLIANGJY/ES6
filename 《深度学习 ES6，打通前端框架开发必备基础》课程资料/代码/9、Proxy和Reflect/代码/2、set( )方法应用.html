@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>set方法应用</title>
+</head>
+
+<body>
+    <script>
+        let student = {
+            name: 'zs',
+            age: 20
+
+        }
+        let proxy = new Proxy(student, {
+            set: function(obj, prop, value) {
+                if (prop === 'age') {
+                    if (!Number.isInteger(value)) {
+                        throw new TypeError('年龄不是整数')
+                    }
+                    if (value > 60) {
+                        throw new RangeError('年龄太大了')
+                    }
+                }
+            }
+        })
+        proxy.age = 18;
+        console.log(proxy.age);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class原理分析</title>
+</head>
+
+<body>
+    <script>
+        "use strict";
+
+        function _instanceof(left, right) {
+            if (right != null && typeof Symbol !== "undefined" && right[Symbol.hasInstance]) {
+                return !!right[Symbol.hasInstance](left);
+            } else {
+                return left instanceof right;
+            }
+        }
+
+        function _classCallCheck(instance, Constructor) {
+            if (!_instanceof(instance, Constructor)) {
+                throw new TypeError("Cannot call a class as a function");
+            }
+        }
+
+        function _defineProperties(target, props) {
+            for (var i = 0; i < props.length; i++) {
+                var descriptor = props[i];
+                // 判断是否可枚举的，
+                descriptor.enumerable = descriptor.enumerable || false;
+                // 可配置，可以通过delete命令删除此属性。
+                descriptor.configurable = true;
+                // 表示可修改值。
+                if ("value" in descriptor) descriptor.writable = true;
+                // 向Person类的原型对象上添加属性。
+                Object.defineProperty(target, descriptor.key, descriptor);
+            }
+        }
+
+        function _createClass(Constructor, protoProps, staticProps) {
+            if (protoProps) _defineProperties(Constructor.prototype, protoProps);
+            if (staticProps) _defineProperties(Constructor, staticProps);
+            return Constructor;
+        }
+
+        var Person =
+            /*#__PURE__*/
+            function() {
+                function Person(name, age) {
+                    // 检查this是否为构造函数，为了保证这个类/构造函数只能通过new的方式来创建，不能作为普通的函数直接调用。
+                    _classCallCheck(this, Person);
+
+                    this.name = name;
+                    this.age = age;
+                }
+
+                _createClass(Person, [{
+                    key: "getShow",
+                    value: function getShow() {
+                        console.log(this.name, this.age);
+                    }
+                }]);
+
+                return Person;
+            }();
+
+        var p = new Person('zs', 20);
+        p.getShow();
+    </script>
+</body>
+
+</html>

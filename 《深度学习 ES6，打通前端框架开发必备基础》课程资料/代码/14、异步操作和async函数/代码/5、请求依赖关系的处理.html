@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>请求依赖关系的处理</title>
+</head>
+
+<body>
+    <script>
+        function sleep(second, params) {
+            return new Promise(function(resolve, reject) {
+                setTimeout(function() {
+                    resolve(params);
+                }, second)
+            })
+        }
+        async function test() {
+            let result1 = await sleep(2000, 'req01');
+            let result2 = await sleep(1000, 'req02' + result1);
+            let result3 = await sleep(1000, 'req03' + result2);
+            console.log(`
+            
+            ${result3}
+            ${result2}
+            ${result3}
+            
+            `)
+
+        }
+        test();
+    </script>
+</body>
+
+</html>

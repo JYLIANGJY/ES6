@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>rest参数基本使用</title>
+</head>
+
+<body>
+    <script>
+        function add(...values) {
+            // console.log(values);
+            // let sum = 0;
+            // for (let index = 0; index < values.length; index++) {
+            //     sum += values[index]
+            // }
+            // return sum;
+
+            let sum = 0;
+            values.forEach(function(item) {
+                sum += item
+            })
+            return sum;
+        }
+        console.log(add(2, 3));
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>apply方法应用</title>
+</head>
+
+<body>
+    <script>
+        let target = function(msg) {
+            return '你好' + msg;
+        }
+
+        let proxy = new Proxy(target, {
+            apply: function(t, ctx, args) {
+                console.log('t=', t);
+                console.log('ctx=', ctx === obj);
+                console.log('args=', args);
+                return 'hello world';
+
+            }
+
+        });
+        let obj = {
+            proxy
+
+        };
+        console.log(obj.proxy('张三'));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>for...of循环</title>
+</head>
+
+<body>
+    <script>
+        // function* test() {
+        //     yield 1;
+        //     yield 2;
+        //     yield 3;
+        //     yield 4;
+        //     yield 5;
+        //     return 6; // done true  return语句不在for...of循环中。
+        // }
+        // for (let v of test()) {
+        //     console.log(v);
+        // }
+
+        let user = {
+            name: 'zs',
+            age: 18
+        };
+
+        function* test(obj) {
+            let keys = Reflect.ownKeys(obj);
+            for (let key of keys) {
+                yield [key, obj[key]]
+            }
+        }
+        for (let item of test(user)) {
+            console.log(item);
+
+        }
+    </script>
+</body>
+
+</html>

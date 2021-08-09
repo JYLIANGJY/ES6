@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Class的继承基本用法</title>
+</head>
+
+<body>
+    <script>
+        class Person {
+            constructor(name, age) {
+                this.name = name;
+                this.age = age;
+            }
+            getShow() {
+                console.log(this.name, this.age);
+            }
+        }
+        class Student extends Person {
+            constructor(name, age, gender) {
+                super(name, age); // 表示父类的构造方法，
+                this.gender = gender
+
+            }
+            getGender() {
+                console.log(this.gender);
+            }
+        }
+        let stu = new Student('zs', 19, '男');
+        stu.getGender();
+        stu.getShow();
+    </script>
+</body>
+
+</html>

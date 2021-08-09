@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array.from( )方法应用1</title>
+</head>
+
+<body>
+    <ul>
+        <li>zs</li>
+        <li>ls</li>
+        <li>laowang</li>
+
+    </ul>
+
+    <script>
+        // let userList = document.querySelectorAll('li');
+        // console.log(Array.from(userList).push('<li>laoma</li>'));
+
+
+        // let arrayList = {
+        //     '0': 'zs',
+        //     '1': 'ls',
+        //     '2': 'wangwu',
+        //     length: 3
+        // }
+        // console.log(Array.from(arrayList));
+        // ES5的处理方式
+        //[].slice.call(arrayList)
+
+        function test() {
+            console.log(Array.from(arguments));
+        }
+        test(1, 2, 3)
+    </script>
+</body>
+
+</html>

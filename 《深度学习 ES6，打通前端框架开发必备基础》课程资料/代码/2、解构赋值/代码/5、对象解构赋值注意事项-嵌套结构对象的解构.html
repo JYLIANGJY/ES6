@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象解构赋值注意事项-嵌套结构对象的解构</title>
+</head>
+
+<body>
+    <script>
+        // let obj = {
+        //     arr: ['Hello', {
+        //         msg: 'World'
+        //     }]
+        // };
+        // let {
+        //     arr: [str, {
+        //         msg
+        //     }]
+        // } = obj;
+        // console.log(str, msg);
+
+        let obj = {
+            local: {
+                start: {
+                    x: 20,
+                    y: 30
+                }
+            }
+
+        }
+        let {
+            local: {
+                start: {
+                    x,
+                    y
+                }
+            }
+        } = obj;
+        console.log(x, y);
+    </script>
+</body>
+
+</html>

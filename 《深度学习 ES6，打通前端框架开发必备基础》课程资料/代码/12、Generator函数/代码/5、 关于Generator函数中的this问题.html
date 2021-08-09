@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title> 关于Generator函数中的this问题</title>
+</head>
+
+<body>
+    <script>
+        function* Person() {
+            yield this.name = 'zs';
+            yield this.age = 18;
+        }
+        let person = {};
+        let obj = Person.bind(person)();
+        console.log(obj.next());
+        console.log(obj.next());
+        // let person = new Person();
+        // console.log(person.name);
+    </script>
+</body>
+
+</html>

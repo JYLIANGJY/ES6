@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数参数的解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // function test([x, y]) {
+        //     return x + y;
+        // }
+        // console.log(test([3, 6]));
+        function test({
+            x = 0,
+            y = 0
+        }) {
+            return x + y;
+        }
+        // let count = test({
+        //     x: 3,
+        //     y: 8
+        // })
+        let count = test({
+            x: 6,
+            y: 5
+        })
+        console.log(count);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Generator函数基本使用</title>
+</head>
+
+<body>
+    <script>
+        // 生成器函数的特点：需要在函数名称的前面加上星号。
+        // 生成器函数可以有若干个阶段，如何划分这些阶段，通过yield关键字完成。
+        function* go() {
+                console.log(1);
+                let str = yield 'a';
+                console.log(2);
+                let b = yield str;
+                console.log(3);
+                return b;
+
+            }
+            // 如果调用生成器函数，不会立即执行。
+            // go()返回的是一个迭代器。
+        let it = go();
+        // 当调用next方法会执行go()生成器函数，同时在执行go()函数时碰到yield关键字后，停止往后执行，同时将yield关键字后面的内容返回。
+        let r1 = it.next();
+        console.log(r1);
+        let r2 = it.next('itcast'); // 该函数的参数会传递go()函数中的str变量。
+        console.log(r2);
+        let r3 = it.next('aaaa');
+        console.log(r3);
+    </script>
+</body>
+
+</html>

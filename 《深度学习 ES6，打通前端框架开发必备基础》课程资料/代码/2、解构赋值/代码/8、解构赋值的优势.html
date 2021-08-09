@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>解构赋值的优势</title>
+</head>
+
+<body>
+    <script>
+        //交换变量的值
+        // let num1 = 3;
+        // let num2 = 6;
+        // [num1, num2] = [num2, num1];
+        // console.log(num1, num2);
+        // 函数可以返回多个值
+        // function test() {
+        //     return [1, 2, 3]
+        // }
+        // let [a, b, c] = test();
+        // console.log(a, b, c)
+        // 函数返回一个对象
+        // function test() {
+        //     return {
+        //         num1: 3,
+        //         num2: 6
+        //     }
+        // }
+        // let {
+        //     num1,
+        //     num2
+        // } = test();
+        // console.log(num1, num2);
+
+        // 提取JSON对象中的数据
+        let userData = {
+            id: 12,
+            userName: 'zhangsan',
+            userAge: 20
+
+        };
+        let {
+            id,
+            userName,
+            userAge
+        } = userData;
+        console.log(id, userName, userAge);
+    </script>
+</body>
+
+</html>

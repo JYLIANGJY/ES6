@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Proxy简介与基本使用</title>
+</head>
+
+<body>
+    <script>
+        let student = {
+            userName: 'zs'
+
+        }
+        let proxy = new Proxy(student, {
+            // get()方法表示的是拦截某个属性的读取操作
+            // target:表示目标对象，propety：要访问的属性
+            get: function(target, propety) {
+                if (propety in target) {
+                    return target[propety];
+                } else {
+                    throw new ReferenceError('访问的属性' + propety + '是不存在的');
+                }
+            }
+
+        })
+
+        // 给对象添加上拦截层以后，后期通过Proxy对象来进行访问，不是针对原始目标对象。
+        console.log(proxy.userName);
+        console.log(proxy.userAge);
+    </script>
+</body>
+
+</html>

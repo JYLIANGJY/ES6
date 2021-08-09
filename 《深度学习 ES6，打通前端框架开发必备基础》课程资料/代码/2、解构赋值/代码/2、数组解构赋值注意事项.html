@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组解构赋值注意事项</title>
+</head>
+
+<body>
+    <script>
+        // 解析不成功的问题,对应的变量的值为undefined
+        // let [num1, num2] = [6];
+        // console.log(num1, num2);
+        // 不完全解构的情况
+        // let [num1, num2] = [1, 2, 3];
+
+        // let [num] = [1, 2, 3];
+        // let [, num, ] = [1, 2, 3];
+        let [, , num] = [1, 2, 3];
+        console.log(num);
+    </script>
+</body>
+
+</html>

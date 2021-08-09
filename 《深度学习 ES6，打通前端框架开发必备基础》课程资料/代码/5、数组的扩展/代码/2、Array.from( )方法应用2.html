@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Array.from方法应用2</title>
+</head>
+
+<body>
+    <ul>
+        <li>zs</li>
+        <li>ls</li>
+        <li>laowang</li>
+
+    </ul>
+    <script>
+        // let newArray = Array.from('itcast', function(item) {
+        //     return item + '1';
+        // })
+        // console.log(newArray);
+        // 获取ul列表中的每一个li中的用户名。
+        let userList = document.querySelectorAll('li');
+        // let newArray = Array.from(userList, function(item) {
+        //     return item.textContent
+        // })
+
+        let newArray = Array.prototype.map.call(userList, function(item) {
+            return item.textContent
+        })
+        console.log(newArray);
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据结构的默认Iterator接口</title>
+</head>
+
+<body>
+    <script>
+        class RangeIterator {
+            constructor(start, stop) {
+                    this.start = start;
+                    this.stop = stop;
+                }
+                [Symbol.iterator]() {
+                    return this
+                }
+            next() {
+                if (this.start < this.stop) {
+                    this.start++;
+                    return {
+                        done: false,
+                        value: this.start
+                    }
+
+                } else {
+                    return {
+                        value: this.start,
+                        done: true
+                    }
+                }
+            }
+        }
+
+        function range(start, stop) {
+            return new RangeIterator(start, stop);
+        }
+        for (let result of range(0, 6)) {
+            console.log(result);
+        }
+    </script>
+</body>
+
+</html>

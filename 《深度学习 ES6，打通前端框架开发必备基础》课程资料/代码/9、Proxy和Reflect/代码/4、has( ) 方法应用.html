@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>has方法应用</title>
+</head>
+
+<body>
+    <script>
+        let user = {
+            _name: 'ls',
+            age: 19
+
+        }
+        let handler = {
+            has(target, key) {
+                //console.log('target=', target);
+                // console.log('key=', key);
+                if (key[0] === '_') {
+                    return false;
+                }
+                return key in target
+            }
+        }
+        let proxy = new Proxy(user, handler);
+        console.log('_name' in proxy);
+    </script>
+</body>
+
+</html>

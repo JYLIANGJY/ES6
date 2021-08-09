@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Set结构简介与常用操作方法</title>
+</head>
+
+<body>
+    <script>
+        // let s = new Set();
+        // s.add(1);
+        // s.add(2);
+        // s.add(3);
+        // s.add(3);
+        // console.log(s);
+        // console.log(s.size);
+        // console.log(s.has(3));
+        // console.log(s.has(5));
+        // console.log(s.delete(2)); // 如果删除成功返回true
+        // console.log(s.has(2));
+        // s.clear();
+        // console.log(s);
+        // Set结构是一个类似于数组的结构，如果转换成真正的数组？
+
+        // let s = new Set();
+        // s.add(1);
+        // s.add(2);
+        // s.add(3);
+        // let array = Array.from(s);
+        // console.log(array);
+
+        // 使用Set结构完成数组的去重操作
+        let array = [1, 2, 3, 3, 5, 6];
+        let s = new Set(array);
+
+        console.log(Array.from(s));
+    </script>
+</body>
+
+</html>

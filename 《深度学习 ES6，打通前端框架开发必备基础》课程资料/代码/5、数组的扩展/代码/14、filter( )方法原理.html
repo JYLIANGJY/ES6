@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>filter方法原理</title>
+</head>
+
+<body>
+    <script>
+        Array.prototype.filterTest = function(fn) {
+            // 循环数组
+            // 获取数组中的元素，并且将元素传递给回调函数
+            // 如果条件，那么就将该元素放到一个新的数组中。
+            let newArray = [];
+            for (let i = 0; i < this.length; i++) {
+                let result = fn(this[i]);
+                if (result) {
+                    newArray.push(this[i]);
+                }
+            }
+
+            return newArray;
+        }
+        let array = [65, 55, 53, 78];
+        let arr = array.filterTest(function(item) {
+            return item >= 60
+        })
+        console.log(arr);
+    </script>
+</body>
+
+</html>

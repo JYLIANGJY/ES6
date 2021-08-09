@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>用于函数调用</title>
+</head>
+
+<body>
+    <script>
+        // function test(num1, num2) {
+        //     console.log(num1 + num2);
+        // }
+        // let array = [12, 13];
+        // //test(...array) // 12,13
+        // test(array[0], array[1]);
+
+
+        // 把一组数添加到数组中。
+        // 函数参数中：...items :rest参数形式  items 是一个数组
+        function test(array, ...items) {
+            array.push(...items) //  是将数组中的数据转成用逗号分隔的列表（扩展运算符）  78,89,90
+            console.log(array);
+        }
+        let array = [23, 56];
+        test(array, 78, 89, 90);
+    </script>
+</body>
+
+</html>

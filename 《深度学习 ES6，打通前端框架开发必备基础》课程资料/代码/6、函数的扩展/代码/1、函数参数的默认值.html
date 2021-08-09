@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数参数的默认值</title>
+</head>
+
+<body>
+    <script>
+        function ajaxAction(url = new Error('请求的地址不能为空'), method = 'GET', dataType = 'json') {
+            console.log(url);
+            console.log(method);
+            console.log(dataType);
+        }
+        ajaxAction('/showUser');
+
+
+
+
+
+
+        function ajaxAction() {
+            var url = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : new Error('请求的地址不能为空');
+            var method = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'GET';
+            var dataType = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'json';
+            console.log(url);
+            console.log(method);
+            console.log(dataType);
+        }
+
+        ajaxAction('/showUser');
+    </script>
+</body>
+
+</html>

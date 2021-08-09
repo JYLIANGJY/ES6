@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模板字符串格式处理</title>
+</head>
+
+<body>
+    <script>
+        let users = [{
+            userId: 1,
+            userName: 'zs'
+        }, {
+            userId: 2,
+            userName: 'ls'
+        }];
+        let newUserList = [];
+        for (let i = 0; i < users.length; i++) {
+            newUserList.push(`<li>${users[i].userId}:${users[i].userName}</li>`)
+        }
+        let str = `
+            <ul>
+                ${newUserList.join('')}
+            </ul>
+        `
+        console.log(str);
+    </script>
+</body>
+
+</html>

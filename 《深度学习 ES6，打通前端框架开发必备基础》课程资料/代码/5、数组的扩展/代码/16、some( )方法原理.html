@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>some方法原理</title>
+</head>
+
+<body>
+    <script>
+        Array.prototype.someTest = function(fn) {
+            // 通过循环获取数组中每一个元素。
+            // 让数组中的每个元素去执行回调函数
+            // 对执行结果进行判断，只要有一个结果为真，返回true.
+            for (let i = 0; i < this.length; i++) {
+                let result = fn(this[i]);
+                if (result) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        let array = [1, 2, 3, 4, 50, 6];
+        let r = array.someTest(function(item) {
+            return item > 10
+        })
+        console.log(r);
+    </script>
+</body>
+
+</html>

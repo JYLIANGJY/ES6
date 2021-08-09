@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>标签模板基本使用</title>
+</head>
+
+<body>
+    <script>
+        let userName = 'zs';
+        let userAge = 20;
+        let str = showMsg `大家好，我叫${userName},今年${userAge}岁`;
+
+        // function showMsg(strs, name, age) {
+        //     console.log(strs) // 存储的是模板字符串中的文本内容，是一个数组。
+        //     // 从第二个参数，存储的都是模板中变量的值。
+        //     console.log(name);
+        //     console.log(age);
+        // }
+
+        function showMsg(strs, ...values) {
+            // 存储的是模板字符串中的变量的值。是一个数组。
+            console.log(values);
+        }
+    </script>
+</body>
+
+</html>

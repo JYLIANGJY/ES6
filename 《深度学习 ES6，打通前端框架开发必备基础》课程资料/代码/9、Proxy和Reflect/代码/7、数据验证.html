@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数据验证</title>
+</head>
+
+<body>
+    <script>
+        // 1、完成对象创建
+        // 2、定义校验规则
+        // 3、完成校验
+        class Person {
+            // 构造方法：当执行new的时候会自动调用该方法。
+            constructor() {
+                this.name = '';
+                this.age = 19;
+                return validate(this, personValidators);
+            }
+        }
+
+        let personValidators = {
+            name(val) {
+                return typeof val === 'string'
+            },
+            age(val) {
+                return typeof val === 'number' && val > 18
+            }
+        }
+
+        function validate(target, validator) {
+            return new Proxy(target, {
+                _validator: validator,
+                set(target, key, value) {
+                    if (target.hasOwnProperty(key)) {
+                        let v = this._validator[key];
+                        if (v(value)) {
+                            return Reflect.set(target, key, value);
+                        } else {
+                            throw Error(`不能给${key}属性设置${value}`)
+                        }
+
+                    } else {
+                        throw Error(`${key}不存在`)
+                    }
+                }
+
+            })
+        }
+        let person = new Person();
+        person.name = 23;
+        person.age = 21;
+        console.log(person);
+    </script>
+</body>
+
+</html>

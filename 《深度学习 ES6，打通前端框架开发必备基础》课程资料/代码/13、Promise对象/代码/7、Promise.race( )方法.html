@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Promise.race方法</title>
+</head>
+
+<body>
+    <script>
+        let promise1 = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                let num = Math.random();
+                if (num > 0.3) {
+                    resolve('成功了1')
+                } else {
+                    reject('失败了1')
+                }
+
+            }, 2000);
+        })
+
+        let promise2 = new Promise(function(resolve, reject) {
+            setTimeout(function() {
+                let num = Math.random();
+                if (num > 0.3) {
+                    resolve('成功了2')
+                } else {
+                    reject('失败了2')
+                }
+
+            }, 2000);
+        })
+        let p = Promise.race([promise1, promise2]).then(function(data) {
+            console.log(data);
+        })
+    </script>
+</body>
+
+</html>
